@@ -1,0 +1,44 @@
+{% extends 'main.html'%}
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>studybud</title>
+    {% block content %}
+
+    <style>
+      .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="home-container">
+      <div class="topics">
+        {% include 'base/topics_component.html' %}
+      </div>
+
+      <div class="main-page">
+
+        <h1>Home template</h1>
+        <h5>{{room_count}} rooms available</h5>
+
+        <a href="{% url 'create-room' %}">create Room</a>
+
+          {% include 'base/feed_component.html' %}
+
+
+      </div>
+
+      <div class="recent-activity">
+        {% include 'base/activity_component.html' %}
+      </div>
+
+    </div>
+  </body>
+  {% endblock content %}
+</html>
